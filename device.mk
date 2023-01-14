@@ -9,6 +9,9 @@ DEVICE_PATH := device/lge/joan
 PRODUCT_SOONG_NAMESPACES += \
     $(DEVICE_PATH)
 
+# OTA
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+
 # common v30
 $(call inherit-product, device/lge/joan-common/joan.mk)
 

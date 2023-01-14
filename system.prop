@@ -1,0 +1,6 @@
+#
+# system props for joan
+#
+
+# Updater
+lineage.updater.uri=https://raw.githubusercontent.com/lifehackerhansol-android/lineage_ota/master/api/joan.json
