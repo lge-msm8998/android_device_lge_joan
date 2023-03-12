@@ -118,8 +118,9 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-service \
     camera.device@3.4-impl \
     camera.device@3.4-external-impl \
-    vendor.qti.hardware.camera.device@1.0 \
-    libxml2
+    camera.msm8998 \
+    libxml2 \
+    vendor.qti.hardware.camera.device@1.0
 
 # Cgroup and task_profiles
 PRODUCT_COPY_FILES += \
