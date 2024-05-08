@@ -5,8 +5,6 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-$(call enforce-product-packages-exist-internal,$(wildcard device/*/$(CUSTOM_BUILD)/$(TARGET_PRODUCT).mk),)
-
 DEVICE_PATH := device/lge/joan
 
 PRODUCT_SOONG_NAMESPACES += \
