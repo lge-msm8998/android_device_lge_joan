@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2018-2024 The LineageOS Project
+# Copyright (C) 2024 The PixelOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -11,11 +12,12 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/lge
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/overlay \
-    $(DEVICE_PATH)/overlay-lineage
+DEVICE_PACKAGE_OVERLAYS += \
+    $(DEVICE_PATH)/overlay \
+    $(DEVICE_PATH)/overlay-aosp
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += $(DEVICE_PATH)/overlay-lineage/lineage-sdk
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += $(DEVICE_PATH)/overlay-aosp/lineage-sdk
 
 # Properties
 TARGET_ODM_PROP += $(DEVICE_PATH)/odm.prop
