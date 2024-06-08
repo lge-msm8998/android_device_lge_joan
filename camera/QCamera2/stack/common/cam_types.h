@@ -1511,6 +1511,7 @@ typedef struct {
     uint8_t isDepth;
     float focus_value;
     uint8_t spot_light_detected;
+    uint8_t LGE_RESERVED[28];
 } cam_auto_focus_data_t;
 
 typedef struct {
@@ -1675,6 +1676,7 @@ typedef struct {
     int32_t est_snap_iso_value;
     uint32_t est_snap_luma;
     uint32_t est_snap_target;
+    uint8_t LGE_RESERVED[20];
 } cam_3a_params_t;
 
 typedef struct {
