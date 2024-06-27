@@ -18,3 +18,8 @@ vendor/firmware/a540_zap.mdt:vendor/firmware/H932/a540_zap.mdt|90897a06637b3cb79
 # NFC
 vendor/firmware/libpn548ad_fw.so:vendor/lib/libpn548ad_fw.so
 vendor/firmware/libpn548ad_fw_64.so:vendor/lib64/libpn548ad_fw_64.so
+
+# Wifi
+vendor/etc/wifi/bdwlan.bin;SYMLINK=vendor/firmware/wlan/qca_cld/bdwlan.bin
+vendor/etc/wifi/bdwlan_ch0.bin;SYMLINK=vendor/firmware/wlan/qca_cld/bdwlan_ch0.bin
+vendor/etc/wifi/bdwlan_ch1.bin;SYMLINK=vendor/firmware/wlan/qca_cld/bdwlan_ch1.bin
