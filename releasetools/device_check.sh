@@ -11,38 +11,38 @@ echo "Checking if we are on a H932 (not H932PR). H932 requires specific graphics
 TOYBOX=/sbin/toybox
 BUSYBOX=/sbin/busybox
 
-mkdir -p /mnt/system
+mkdir -p /mnt/vendor
 
 if test -f "$TOYBOX"; then
-    toybox mount /dev/block/bootdevice/by-name/system -t ext4 /mnt/system
+    toybox mount /dev/block/mapper/vendor -t ext4 /mnt/vendor
 elif test -f "$BUSYBOX"; then
-    busybox mount /dev/block/bootdevice/by-name/system -t ext4 /mnt/system
+    busybox mount /dev/block/mapper/vendor -t ext4 /mnt/vendor
 else
-    /tmp/toybox mount /dev/block/bootdevice/by-name/system -t ext4 /mnt/system
+    /tmp/toybox mount /dev/block/mapper/vendor -t ext4 /mnt/vendor
 fi
 
 if cat /proc/cmdline | grep -q "LG-H932"; then
     echo "H932 detected, copying blobs..."
-    mv /mnt/system/system/vendor/firmware/H932/* /mnt/system/system/vendor/firmware/
+    mv /mnt/vendor/firmware/H932/* /mnt/vendor/firmware/
 else
     echo "Not a H932, copy over the H930 specific graphics blobs"
-    mv /mnt/system/system/vendor/firmware/H930/* /mnt/system/system/vendor/firmware/
+    mv /mnt/vendor/firmware/H930/* /mnt/vendor/firmware/
 fi
 
 echo "Remove unneeded blobs"
-rm -r /mnt/system/system/vendor/firmware/H930
-rm -r /mnt/system/system/vendor/firmware/H932
+rm -r /mnt/vendor/firmware/H930
+rm -r /mnt/vendor/firmware/H932
 
 echo "Set proper permissions for newly copied graphics blobs"
-chmod 0644 /mnt/system/system/vendor/firmware/a540*
-chown root:root /mnt/system/system/vendor/firmware/a540*
+chmod 0644 /mnt/vendor/firmware/a540*
+chown root:root /mnt/vendor/firmware/a540*
 echo "including SELinux file contexts"
-chcon u:object_r:firmware_file:s0 /mnt/system/system/vendor/firmware/a540*
+chcon u:object_r:firmware_file:s0 /mnt/vendor/firmware/a540*
 
 if test -f "$TOYBOX"; then
-    toybox umount /mnt/system
+    toybox umount /mnt/vendor
 elif test -f "$BUSYBOX"; then
-    busybox umount /mnt/system
+    busybox umount /mnt/vendor
 else
-    /tmp/toybox umount /mnt/system
+    /tmp/toybox umount /mnt/vendor
 fi
